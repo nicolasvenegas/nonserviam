@@ -1,3 +1,5 @@
+let img;
+
 // Global variable to control the animation over time (3rd dimension of noise)
 let t = 0;
 // Define the scale of the noise field. Smaller numbers = larger, smoother patterns.
@@ -9,7 +11,9 @@ const amplitude = 8;
 // Define a base frequency for the underlying wave structure.
 const baseFrequency = 0.0900;
 
-
+function preload(){
+ img = loadImage('data/ns_title.png');
+}
 
 /**
  * p5.js setup function, runs once at the beginning.
@@ -63,6 +67,7 @@ function draw() {
   // Increment time to animate the noise field smoothly
   t += 0.0006;
   
+  image(img, width/2-img.width/2, height/2, img.width/3, img.height/3);
 
 }
 
