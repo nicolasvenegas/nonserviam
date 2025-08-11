@@ -1,20 +1,27 @@
+// variables imágenes
 let mic1;
 let ciica1;
+// variables fuentes
+let sgBlack;
+let sgBlackItalic;
+let sgMedium;
+let sgMediumItalic;
 
-// Global variable to control the animation over time (3rd dimension of noise)
+
+// variable global para controlar el tiempo de la animacion
 let t = 0;
-// Define the scale of the noise field. Smaller numbers = larger, smoother patterns.
+// escala del ruido
 const noiseScale = 0.004;
-// Set the vertical distance between lines
+// distancia vertuical entre lineas
 const lineSpacing = 15;
-// Set a CONSTANT amplitude for the waves.
+// amplitud de onda
 const amplitude = 10;
-// Define a base frequency for the underlying wave structure.
-const baseFrequency = 0.0900;
+// frecuencia base para la estructura de onda
+const baseFrequency = 0.09  ;
 
 
 function preload() {
-  // Load a custom font before the sketch starts
+  // precarga de tipografías e imágenes
   sgBlack = loadFont('data/SchibstedGrotesk-Black.ttf');
   sgBlackItalic = loadFont('data/SchibstedGrotesk-BlackItalic.ttf');
   sgMedium = loadFont('data/SchibstedGrotesk-Medium.ttf');
@@ -23,28 +30,16 @@ function preload() {
   ciica1 = loadImage('data/ciica_1.png');
 }
 
-/**
- * p5.js setup function, runs once at the beginning.
- */
 function setup() {
-  // Create a fixed square canvas.
-  // We take the smaller of the window dimensions to ensure it fits.
-  const canvasSize = min(windowWidth, windowHeight);
-  //createCanvas(canvasSize, canvasSize);
   createCanvas(windowWidth, windowHeight);
 }
 
-/**
- * p5.js draw function, runs in a continuous loop.
- */
+
 function draw() {
-  // Clear the canvas with a solid black background.
   background(0);
-  // Set the drawing style for the waves.
-  stroke(205, 102, 0, 50); // Translucent white
+  stroke(205, 102, 0, 45); // Translucent white
   noFill();
   strokeWeight(1.5);
-
   // Loop through the canvas vertically, drawing one continuous line at a time
   for (let y = 0; y < height; y += lineSpacing) {
 
@@ -74,8 +69,8 @@ function draw() {
   // Increment time to animate the noise field smoothly
   t += 0.0006;
 
-  stroke(205, 102, 0, 70);
-  fill(205, 102, 0, 30);
+  stroke(205, 102, 0, 40);
+  fill(205, 102, 0, 25);
   rect(width/2-175, height/2-300, 350,600);
   textSize(80);
   textAlign(CENTER);
