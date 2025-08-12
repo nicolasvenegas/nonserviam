@@ -50,7 +50,7 @@ function setup() {
 
 function draw() {
   background(0);
-  stroke(255,191,0, 20); // Translucent white
+  stroke(255,191,0, 15); 
   noFill();
   strokeWeight(1.5);
 
@@ -77,8 +77,8 @@ function draw() {
   // variable para definir la proporcionalidad entre elementos de dibujo
   let ratio = 300;
 
-  stroke(255,191,0, 40);
-  fill(255,191,0, 15);
+  stroke(255,191,0, 30);
+  fill(255,191,0, 10);
 
   // paneles
   rect(width / 2 - ratio / 2, height / 2 - ratio, ratio, ratio * 2);
