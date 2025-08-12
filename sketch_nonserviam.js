@@ -1,6 +1,7 @@
 // variables imágenes
 let mic1;
 let ciica1;
+
 // variables fuentes
 let sgBlack;
 let sgBlackItalic;
@@ -19,8 +20,9 @@ const amplitude = 10;
 // frecuencia base para la estructura de onda
 const baseFrequency = 0.09;
 
+// variables para el perlin noise que afecta tamaño elipse mic
 let xoff = 0;
-let col = 50;
+let dilatacion = 50;
 
 
 function preload() {
@@ -36,6 +38,7 @@ function preload() {
 function setup() {
   // crear lienzo del tamaño de la pantalla
   createCanvas(windowWidth, windowHeight);
+  //createCanvas(windowWidth, windowHeight, SVG); // para exportar en SVG
   //createCanvas(1080/2, 1350/2); // IG post size
   //createCanvas(1080 / 2, 1920 / 2); // IG story size
   smooth(1);
@@ -86,7 +89,7 @@ function draw() {
   textFont(sgBlackItalic);
   text('NON SERVIAM ', width / 2, height / 2);
 
-  
+
 
   textSize(windowWidth * 0.011);
   textFont(sgMedium);
@@ -94,15 +97,20 @@ function draw() {
   text('inspirada en el Canto VII de Altazor', width / 2, height / 2 + ratio / 8);
   imageMode(CENTER);
 
-  col = map(noise(xoff), 0, 1, 0, 10);
-  ellipse(width / 2, height / 2 + ratio / 1.8, 73+col, 73+col);
+  dilatacion = map(noise(xoff), 0, 1, 0, 10);
+  ellipse(width / 2, height / 2 + ratio / 1.8, 73 + dilatacion, 73 + dilatacion);
   xoff += 0.025;
 
   image(mic1, width / 2, height / 2 + ratio / 1.8, 70, 70);
 
-  fill(255,200);
+  fill(255, 200);
   textSize(windowWidth * 0.009);
   text('una instalación de Gabriel Oviedo', width / 2, height / 1.22 + ratio / 8);
+
+  // exportar SVG, la libreria esta cargada en index.html
+  //save("mySVG.svg");
+  //print("saved svg");
+  //noLoop();
 }
 
 
