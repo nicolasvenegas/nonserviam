@@ -78,7 +78,7 @@ function draw() {
   let ratio = 300;
 
   stroke(255,191,0, 40);
-  fill(255,191,0, 20);
+  fill(255,191,0, 15);
 
   // paneles
   rect(width / 2 - ratio / 2, height / 2 - ratio, ratio, ratio * 2);
