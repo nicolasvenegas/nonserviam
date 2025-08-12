@@ -24,6 +24,8 @@ const baseFrequency = 0.09;
 let xoff = 0;
 let dilatacion = 50;
 
+let ambar;
+
 
 function preload() {
   // precarga de tipografías e imágenes
@@ -42,12 +44,13 @@ function setup() {
   //createCanvas(1080/2, 1350/2); // IG post size
   //createCanvas(1080 / 2, 1920 / 2); // IG story size
   smooth(1);
+  ambar = color(255,191,0);
 }
 
 
 function draw() {
   background(0);
-  stroke(205, 102, 0, 45); // Translucent white
+  stroke(255,191,0, 35); // Translucent white
   noFill();
   strokeWeight(1.5);
 
@@ -74,8 +77,8 @@ function draw() {
   // variable para definir la proporcionalidad entre elementos de dibujo
   let ratio = 300;
 
-  stroke(205, 102, 0, 40);
-  fill(205, 102, 0, 25);
+  stroke(255,191,0, 40);
+  fill(255,191,0, 20);
 
   // paneles
   rect(width / 2 - ratio / 2, height / 2 - ratio, ratio, ratio * 2);
@@ -95,17 +98,17 @@ function draw() {
   // subtitulo
   textSize(windowWidth * 0.011);
   textFont(sgMedium);
-  fill(205, 102, 0);
+  fill(255,191,0);
   text('inspirada en el Canto VII de Altazor', width / 2, height / 2 + ratio / 8);
   imageMode(CENTER);
 
   // animacion microfono e imagen mic
+  fill(255,191,0,150);
   dilatacion = map(noise(xoff), 0, 1, 0, 10);
   ellipse(width / 2, height / 2 + ratio / 1.8, 73 + dilatacion, 73 + dilatacion);
   xoff += 0.025;
   image(mic1, width / 2, height / 2 + ratio / 1.8, 70, 70);
 
-  // creditos
   fill(255, 200);
   textSize(windowWidth * 0.009);
   text('una instalación de Gabriel Oviedo', width / 2, height / 1.22 + ratio / 8);
