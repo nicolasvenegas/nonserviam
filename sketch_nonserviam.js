@@ -56,16 +56,14 @@ function draw() {
     beginShape();
     // loop para dibujar los segmentos de la onda cada 5 pixeles
     for (let x = 0; x <= width; x += 5) {
-      // Calculate a Perlin noise value for the current (x, y) position and time
+      // calculo del perlin para la posicion x, y
       const noiseVal = noise(x * noiseScale, y * noiseScale, t);
-      // --- INVERTED PHASE MODULATION BASED ON LOCAL NOISE ---
-      // Map the noise value to an inverted phase shift.
-      // Increased the maximum offset to heighten high-frequency intensity.
+      // mapeo invertiendo la fase del ruido, inrementando la intensidad
       const phaseOffset = map(noiseVal, 0, 1, TWO_PI * 8, 0);
-      // Calculate the y-position of the wave.
+      // calculo de la posicion y
       const angle = x * baseFrequency + phaseOffset;
       const waveY = sin(angle) * amplitude;
-      // Draw a vertex at the current x position, offset by the wave
+      // imprimir posicion vertice x
       vertex(x, y + waveY);
     }
     endShape();
@@ -78,11 +76,15 @@ function draw() {
 
   stroke(205, 102, 0, 40);
   fill(205, 102, 0, 25);
+
+  // paneles
   rect(width / 2 - ratio / 2, height / 2 - ratio, ratio, ratio * 2);
   rect(width / 2 + ratio / 2 + 20, height / 2 - ratio, ratio, ratio * 2);
   rect(width / 2 + ratio * 1.5 + 40, height / 2 - ratio, ratio, ratio * 2);
   rect(width / 2 - ratio * 1.5 - 20, height / 2 - ratio, ratio, ratio * 2);
   rect(width / 2 - ratio * 2.5 - 40, height / 2 - ratio, ratio, ratio * 2);
+
+  // titulo
   textSize(windowWidth * 0.04);
   textAlign(CENTER);
   fill(200);
@@ -90,19 +92,20 @@ function draw() {
   text('NON SERVIAM ', width / 2, height / 2);
 
 
-
+  // subtitulo
   textSize(windowWidth * 0.011);
   textFont(sgMedium);
   fill(205, 102, 0);
   text('inspirada en el Canto VII de Altazor', width / 2, height / 2 + ratio / 8);
   imageMode(CENTER);
 
+  // animacion microfono e imagen mic
   dilatacion = map(noise(xoff), 0, 1, 0, 10);
   ellipse(width / 2, height / 2 + ratio / 1.8, 73 + dilatacion, 73 + dilatacion);
   xoff += 0.025;
-
   image(mic1, width / 2, height / 2 + ratio / 1.8, 70, 70);
 
+  // creditos
   fill(255, 200);
   textSize(windowWidth * 0.009);
   text('una instalación de Gabriel Oviedo', width / 2, height / 1.22 + ratio / 8);
