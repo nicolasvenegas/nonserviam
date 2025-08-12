@@ -50,7 +50,7 @@ function setup() {
 
 function draw() {
   background(0);
-  stroke(255,191,0, 35); // Translucent white
+  stroke(255,191,0, 20); // Translucent white
   noFill();
   strokeWeight(1.5);
 
